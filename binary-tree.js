@@ -103,6 +103,49 @@ class BinaryTree {
 
   maxSum() {
 
+    let maxSum = 0;
+
+    let currentSum = 0;
+
+    let toVisitStack = [this.root];
+
+    console.log(toVisitStack)
+
+    while(toVisitStack.length) {
+
+      let current = toVisitStack.shift();
+
+      if(current) {
+
+        // console.log(currentSum)
+        console.log(current.val)
+
+        currentSum += current.val;
+
+        if(!current.left && !current.right) {
+
+          if (currentSum > maxSum){
+
+            maxSum = currentSum;
+
+          }
+
+        }
+
+        if(current.left) {
+          toVisitStack.push(current.left)
+        }
+
+        if(current.right) {
+          toVisitStack.push(current.right)
+        }
+
+      }
+
+    }
+
+    return maxSum;
+
   }
 
   /** nextLarger(lowerBound): return the smallest value in the tree

@@ -52,7 +52,7 @@ describe("maxDepth", function() {
   });
 });
 
-// describe("maxSum", function() {
+describe("maxSum", function() {
 //   it("handles simple trees", function() {
 //     expect(smallTree.maxSum()).toBe(16);
 //   });
@@ -61,9 +61,9 @@ describe("maxDepth", function() {
 //     expect(emptyTree.maxSum()).toBe(0);
 //   });
 
-//   it("handles more complex trees", function() {
-//     expect(largeTree.maxSum()).toBe(21);
-//   });
+  it("handles more complex trees", function() {
+    expect(largeTree.maxSum()).toBe(21);
+  });
 
 //   it("handles negative values", function() {
 //     let node100 = new BinaryTreeNode(100);
@@ -76,7 +76,7 @@ describe("maxDepth", function() {
 
 //     expect(tree.maxSum()).toBe(109);
 //   });
-// });
+});
 
 // describe("nextLarger", function() {
 //   it("handles simple trees", function() {
