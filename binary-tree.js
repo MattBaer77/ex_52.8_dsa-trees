@@ -103,48 +103,22 @@ class BinaryTree {
 
   maxSum() {
 
-    let maxSum = 0;
+    let result = 0;
 
-    let currentSum = 0;
+    function maxSumHelper(node) {
 
-    let toVisitStack = [this.root];
+      if (node === null) return 0;
 
-    console.log(toVisitStack)
+      const leftSum = maxSumHelper(node.left);
+      const rightSum = maxSumHelper(node.right);
 
-    while(toVisitStack.length) {
+      result = Math.max(result, node.val + leftSum + rightSum);
 
-      let current = toVisitStack.shift();
-
-      if(current) {
-
-        // console.log(currentSum)
-        console.log(current.val)
-
-        currentSum += current.val;
-
-        if(!current.left && !current.right) {
-
-          if (currentSum > maxSum){
-
-            maxSum = currentSum;
-
-          }
-
-        }
-
-        if(current.left) {
-          toVisitStack.push(current.left)
-        }
-
-        if(current.right) {
-          toVisitStack.push(current.right)
-        }
-
-      }
-
+      return Math.max(0, leftSum + node.val, rightSum + node.val);
     }
 
-    return maxSum;
+    maxSumHelper(this.root);
+    return result;
 
   }
 
