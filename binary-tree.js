@@ -103,6 +103,8 @@ class BinaryTree {
 
   maxSum() {
 
+    // REF
+
     let result = 0;
 
     function maxSumHelper(node) {
@@ -126,6 +128,42 @@ class BinaryTree {
    * which is larger than lowerBound. Return null if no such value exists. */
 
   nextLarger(lowerBound) {
+
+    let nextLargerValue = Infinity;
+
+    let toVisitStack = [this.root];
+
+    while(toVisitStack.length) {
+
+      let current = toVisitStack.shift();
+
+      if(current) {
+
+        if(current.val > lowerBound && current.val < nextLargerValue) {
+
+          nextLargerValue = current.val
+
+        }
+
+        if(current.left) {
+          toVisitStack.push(current.left)
+        }
+
+        if(current.right) {
+          toVisitStack.push(current.right)
+        }
+
+      }
+
+    }
+
+    if (nextLargerValue === Infinity) {
+
+      nextLargerValue = null;
+
+    }
+
+    return nextLargerValue;
 
   }
 
