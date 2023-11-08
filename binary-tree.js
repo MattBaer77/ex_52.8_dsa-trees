@@ -18,41 +18,21 @@ class BinaryTree {
 
   minDepth() {
 
-    let minDepth = Infinity;
-
     let currentDepth = 0;
 
     let toVisitStack = [this.root];
 
     while(toVisitStack.length) {
 
-      console.log(toVisitStack)
-
-      let current = toVisitStack.pop();
-
-      console.log(current)
+      let current = toVisitStack.shift();
 
       if(current) {
 
         currentDepth++;
 
-        console.log(currentDepth)
-
         if(!current.left && !current.right) {
 
-          if (currentDepth < minDepth){
-
-            console.log("Less Depth")
-            console.log(minDepth)
-            console.log(currentDepth)
-
-            minDepth = currentDepth;
-
-            console.log(minDepth)
-
-          }
-
-          // currentDepth = 0;
+          return currentDepth
 
         }
 
@@ -68,7 +48,7 @@ class BinaryTree {
 
     }
 
-    return minDepth;
+    return currentDepth;
 
   }
 

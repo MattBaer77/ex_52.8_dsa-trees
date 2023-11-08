@@ -33,9 +33,9 @@ describe("minDepth", function() {
     expect(largeTree.minDepth()).toBe(2);
   });
 
-//   it("handles empty trees", function() {
-//     expect(emptyTree.minDepth()).toBe(0);
-//   });
+  it("handles empty trees", function() {
+    expect(emptyTree.minDepth()).toBe(0);
+  });
 });
 
 // describe("maxDepth", function() {
